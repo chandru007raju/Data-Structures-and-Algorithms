@@ -33,8 +33,32 @@ bool Search(BstNode* root, int data){
     else if(data <= root->data) return Search(root->left,data);
     else return Search(root->right, data);
 }
+int FindMax(BstNode* root){
+    if(root == NULL){
+        cout<<"empty tree";
+        return -1;
+    }
+    else if(root->right == NULL){
+        return root->data;
+    }
+    //Search in right subtree;
+    return FindMax(root->right);
+}
+int FindMin(BstNode* root){
+    if(root == NULL){
+        cout<<"tree is empty";
+        return -1;
+    }
+    else if(root->left == NULL){
+        return root->data;
+    }
+    //Search in left subtree;
+    return FindMin(root->left);
+}
 int main(){
     BstNode* root = NULL;
+    int maxx;
+    int minn;
     root = Insert(root, 15);
     root = Insert(root, 10);
     root = Insert(root, 16);
@@ -43,8 +67,12 @@ int main(){
     root = Insert(root, 25);
     root = Insert(root, 17);
     int number;
-    cout<<"enter a numer to search? \n";
+    cout<<"enter a number to search? \n";
     cin>> number;
     if(Search(root,number)== true) cout<<"number found \n";
     else cout<<"Not found \n";
+    maxx = FindMax(root);
+    minn = FindMin(root);
+    cout<<"max element in tree is :"<< maxx<<" \n";
+    cout<<"min element in tree is :"<< minn<<" \n";
 }
