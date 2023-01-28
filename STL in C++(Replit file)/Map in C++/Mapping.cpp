@@ -1,4 +1,5 @@
 #include<iostream>
+// #include<bits/stdc++.h> 
 // #include<map>
 #include<unordered_map>
 #include<string>
@@ -21,7 +22,7 @@ int main()
     for(auto pair : myDictionary)
         cout << pair.first << " - "<< pair.second << endl;
 
-    myDictionary.clear();
+    // myDictionary.clear();
     for(auto pair : myDictionary)
         cout << pair.first << " - "<< pair.second << endl;
     
